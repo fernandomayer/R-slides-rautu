@@ -73,6 +73,42 @@ Para as classes em PDF, a `render()` irá converter o conteúdo de `Rmd`
 para `tex` através do knitr, e o pandoc irá converter de `tex` para
 `pdf`.
 
+## Equações matemáticas e Mathjax
+
+Para os slides em PDF, que serão convertidos para LaTeX, as equações
+matemáticas podem ser inseridas usando a linguage TeX padrão para
+renderizar as equações.
+
+As equações nos slides HTML também pode ser escritas usando a linguagem
+TeX. As equações serão então renderizadas no navegador pelo
+[MathJax][]. Esta renderização é feita on-line, ou seja, é necessário
+estar sempre conectado para que as equações apareçam corretamente. Em
+muitos lugares a conexão não é possível, mas podemos contornar esse
+problema se tivermos uma instalação local do MathJax.
+
+A maneira mais fácil de fazer isso é clonando o MathJax diretamente do
+GitHub
+
+```sh
+git clone git@github.com:mathjax/MathJax.git
+```
+
+Agora, basta "linkar" a instalação do MathJax local com os slides que
+está preparando. Isto pode ser feito no cabeçalho YAML do documento, por
+exemplo:
+
+```
+---
+title: "Teste de slides em rmarkdown"
+author: Fernando Mayer
+date: Julho, 2015
+output:
+  ioslides_presentation:
+    mathjax: "/local/clone/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    self_contained: true
+---
+```
+
 
 
 <!-- links -->
@@ -85,5 +121,6 @@ para `tex` através do knitr, e o pandoc irá converter de `tex` para
 [tufte]: http://rmarkdown.rstudio.com/tufte_handout_format.html
 [Edward Tufte]: http://www.edwardtufte.com/tufte/
 [pandoc]: http://pandoc.org/
+[MathJax]: https://www.mathjax.org/
 
 [^1]: Por isso é necessário ter o pandoc instaldo no sistema.
