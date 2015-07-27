@@ -23,7 +23,7 @@ O rmarkdown possui duas formas de gerar slides em HTML:
 
 * [ioslides][]: uma forma simples e mais flexível de gerar slides em
   HTML. Um template com uma aplicação desta classe está em
-  [slides_ioslides.Rmd][].
+  [slides_ioslides.Rmd](./slides_ioslides.Rmd).
 
 
 <!-- links -->
