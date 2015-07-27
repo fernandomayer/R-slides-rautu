@@ -1,0 +1,75 @@
+---
+title: "Teste de slides em rmarkdown"
+author: Fernando Mayer
+date: Julho, 2015
+output:
+  ioslides_presentation:
+    mathjax: "/home/fpmayer/GitHub/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    self_contained: true
+---
+
+# Teste de slides em rmarkdown (**ioslides**)
+
+## Isto é um header h2
+
+Uma lista com hash:
+
+- Item 1
+- Item 2
+
+## Outro header h2 no mesmo slide
+
+E um alista com asterisco
+
+* Item 1
+* Item 2
+
+----
+
+# Isto é um header h1
+
+## Um header h2 | Com um sub-header
+
+- Item 1
+    - Sub-item 1
+    - Sub-item 2
+- Item 2
+
+----
+
+## Figura (h2)
+
+![Gitlab](gitlab.png)
+
+----
+
+## Um código em R
+
+Gerando valores de uma VA $X$ de uma distribuição normal $X \sim
+\text{N}(0,1)$.
+
+```{r}
+(x <- rnorm(100))
+```
+
+----
+
+## Uma figura com R
+
+Histograma do objeto `x`. A média de `x` é `r mean(x)`.
+
+```{r}
+hist(x)
+```
+
+----
+
+### A distribuição normal (h3)
+
+$$ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp
+\left[-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2} \right] $$
+
+#### A distribuição de Poisson (h4)
+
+$$ P[X = x] = \frac{e^{-\lambda} \lambda^x}{x!} $$
+
