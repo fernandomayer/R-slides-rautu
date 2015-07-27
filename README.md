@@ -24,6 +24,55 @@ O rmarkdown possui duas formas de gerar slides em HTML:
 * [ioslides][]: uma forma simples e mais flexível de gerar slides em
   HTML. Um template com uma aplicação desta classe está em
   [slides_ioslides.Rmd](./slides_ioslides.Rmd).
+* [slidy][]: uma forma um pouco mais simples de fazer slides em HTML. Um
+  template com uma aplicação desta classe está em
+  [slides_slidy.Rmd](./slides_slidy.Rmd).
+
+O rmarkdowm também é capaz de gerar slides em PDF com:
+
+* [beamer][]: a forma tradicional de fazer em slides em LaTeX torna-se
+  facilitada com o uso da linguagem rmarkdown. Um template com uma
+  aplicação desta classe está em
+  [slides_beamer.Rmd](./slides_beamer.Rmd).
+* [tufte][]: esta classe segue o padrão se slides utilizada pelo famoso
+  [Edward Tufte][] (autor do livro *The Visual Display of Quantitative
+  Information*, entre outros), e segue um padrão mais tradicional (os
+  slides são em tamanho carta). Um template com uma aplicação desta
+  classe está em [slides_tufte.Rmd](./slides_tufte.Rmd).
+
+## Uso
+
+Instalar a versão mais nova do pacote rmarkdown:
+
+```r
+library(devtools)
+install_github("rstudio/rmarkdown")
+```
+
+Escreva o documento usando a linguagem Markdown em um arquivo com
+extensão `.Rmd`. No cabeçalho YAML de cada documento existe a
+especificação de `output`, que irá determinar o formato final do
+arquivo.
+
+Use `#` e `##` para criar seções dentro dos slides, e uma linha (`----`)
+para separar o conteúdo de cada slide.
+
+Para renderizar (transformar) o arquivo `Rmd` no seu formato final, use
+a função `render()`:
+
+```{r}
+library(rmarkdow)
+render("nome_do_arquivo.Rmd")
+```
+
+Para as classes de slides em HTML, a função `render()` irá converter o
+conteúdo de `Rmd` para `md` através do knitr, e posteriormente o
+[pandoc][][^1] será chamado para converter de `md` para HTML.
+
+Para as classes em PDF, a `render()` irá converter o conteúdo de `Rmd`
+para `tex` através do knitr, e o pandoc irá converter de `tex` para
+`pdf`.
+
 
 
 <!-- links -->
@@ -31,3 +80,10 @@ O rmarkdown possui duas formas de gerar slides em HTML:
 [knitr]: http://yihui.name/knitr/
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [ioslides]: http://rmarkdown.rstudio.com/ioslides_presentation_format.html
+[slidy]: http://rmarkdown.rstudio.com/slidy_presentation_format.html
+[beamer]: http://rmarkdown.rstudio.com/beamer_presentation_format.html
+[tufte]: http://rmarkdown.rstudio.com/tufte_handout_format.html
+[Edward Tufte]: http://www.edwardtufte.com/tufte/
+[pandoc]: http://pandoc.org/
+
+[^1]: Por isso é necessário ter o pandoc instaldo no sistema.
