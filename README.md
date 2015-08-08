@@ -109,7 +109,13 @@ output:
 ---
 ```
 
+*****
 
+Repositório original:
+http://git.leg.ufpr.br/fernandomayer/R-slides-rautu
+
+Repositório espelho:
+https://github.com/fernandomayer/R-slides-rautu
 
 <!-- links -->
 
